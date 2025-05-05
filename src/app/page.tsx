@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-
+// This is the index file
 export default function Home() {
   return (
     <div className={styles.page}>
@@ -19,6 +19,7 @@ export default function Home() {
           </li>
           <li>Save and see your changes instantly.</li>
         </ol>
+        <a href="/other" className="ee">Link Test</a>
 
         <div className={styles.ctas}>
           <a
