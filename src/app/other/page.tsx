@@ -5,7 +5,7 @@ export default function Other() {
     return (
         <>
             <h1>Test</h1>
-            <a href="/" className="ee">Go back</a>
+            {/* <a href="/" className="ee">Go back</a> */}
         </>
     );
 }
