@@ -1,6 +1,11 @@
+'use client'
+// use server whenever possible
 import Image from "next/image";
 import styles from "./page.module.css";
-// This is the index file
+import Link from 'next/link'
+import { useState } from 'react';
+
+// This is the "index" file
 
 const products = [
   { title: 'Cabbage', isFruit: false, id: 1 },
@@ -10,6 +15,7 @@ const products = [
 ];
 
 export default function Home() {
+
   const listItems = products.map(product =>
     <li
       key={product.id}
@@ -20,6 +26,18 @@ export default function Home() {
       {product.title}
     </li>
   );
+
+  function MyButton() {
+    const [count, setCount] = useState(1);
+    function handleClick() {
+      setCount(count + 1);
+      alert('You clicked me ' + JSON.stringify(count) + ' times!');
+    }
+    return (
+      <button onClick={handleClick}>Button</button>
+    );
+}
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -31,8 +49,9 @@ export default function Home() {
           height={38}
           priority
         />
-        <a href="/other" className="ee">Link Test</a>
+        <Link href="/other" className="ee">Link Test</Link>
         <ul>{listItems}</ul>
+        <MyButton />
       </main>
       <footer className={styles.footer}>
        <p>Footer</p>
