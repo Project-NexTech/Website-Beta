@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "This is where the title goes",
-  description: "description goes here (add this when publishing so it shoes up in the gooogle serach results)",
+  title: "Default Title",
+  description: "Default description",
 };
 
 export default function RootLayout({
