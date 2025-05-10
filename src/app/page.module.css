@@ -166,3 +166,11 @@ a.secondary {
     filter: invert();
   }
 }
+
+.redButton {
+  color: red;
+}
+
+.greenButton {
+  color: darkgreen;
+}

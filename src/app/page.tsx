@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from 'next/link'
 import styles from "./page.module.css";
 import { useState } from 'react';
+import clsx from 'clsx';
 
 // This is the "index" file
 
@@ -36,7 +37,13 @@ export default function Home() {
       alert('You clicked me ' + JSON.stringify(count) + ' times!');
     }
     return (
-      <button onClick={handleClick}>Button {num}</button>
+      <button className={clsx(
+        {
+          [styles.redButton]: count <= 5,
+          [styles.greenButton]: count > 5,
+        }
+      )} onClick={handleClick}>Button {num}</button>
+      // square brackets are another weird javascript thing, curly brackets create a ton of errors because they get evaluated as strings instead of variables for some reason
     );
 }
 
