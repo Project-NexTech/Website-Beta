@@ -1,8 +1,7 @@
 'use client'
-// use server whenever possible
 import Image from "next/image";
-import styles from "./page.module.css";
 import Link from 'next/link'
+import styles from "./page.module.css";
 import { useState } from 'react';
 
 // This is the "index" file
@@ -27,14 +26,17 @@ export default function Home() {
     </li>
   );
 
-  function MyButton() {
+  function MyButton({num}: {num: number}) {
+    // The format is very important because otherwise this would be incorrect syntax for a react component.
+    // The function accepts an object with a num property making it a react component using props
+    // The {num: number} is to specify a type for TypeScript
     const [count, setCount] = useState(1);
     function handleClick() {
       setCount(count + 1);
       alert('You clicked me ' + JSON.stringify(count) + ' times!');
     }
     return (
-      <button onClick={handleClick}>Button</button>
+      <button onClick={handleClick}>Button {num}</button>
     );
 }
 
@@ -51,7 +53,8 @@ export default function Home() {
         />
         <Link href="/other" className="ee">Link Test</Link>
         <ul>{listItems}</ul>
-        <MyButton />
+        <MyButton num={1} />
+        <MyButton num={2} />
       </main>
       <footer className={styles.footer}>
        <p>Footer</p>
